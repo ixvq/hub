@@ -1,1 +1,9 @@
-babu
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/insanedude59/UILib/main/source"))();
+
+lib:SetTitle("Slixx's UI Library")
+
+local tab1 = lib:NewTab("Character", "Character Description Here")
+
+tab1:NewSlider("WalkSpeed",16,500,16,function(value) -- title, minimum, maximium, callback
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
+end)
