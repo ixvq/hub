@@ -1,15 +1,14 @@
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/insanedude59/UILib/main/source"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vozoid/ui-libraries/main/venus/source.lua", true))()
 
-lib:SetTitle("Slixx's UI Library")
+local main = library:Load({Name = "Venus Library", Theme = "Dark", SizeX = 440, SizeY = 480, ColorOverrides = {}})
+local aimbot = main:Tab("Aimbot")
+local section = aimbot:Section({Name = "Section", column = 1})
 
-local tab1 = lib:NewTab("Character", "Character Description Here")
+-- object:Hide()
+-- object:Show()
 
-tab1:NewSlider("WalkSpeed", 16, 500, 16, function(value)
-    local player = game.Players.LocalPlayer
-    local character = player.Character or player.CharacterAdded:Wait()
-    
-    -- Check if Humanoid exists before trying to modify WalkSpeed
-    if character and character:FindFirstChild("Humanoid") then
-        character.Humanoid.WalkSpeed = value
-    end
-end)
+local label = section:Label("Label")
+
+local button = section:Button({Name = "Button", Callback = function()
+   print("Button pressed")
+end})
